@@ -5,6 +5,7 @@ const  express  =  require('express');
 const  bodyParser  =  require('body-parser');
 const  morgan  =  require('morgan');
 const  app  =  express();
+const  authRouter  =  require('./routes/auth/auth');
 
 // je configure l'application
 app.use(morgan('dev'));
@@ -16,6 +17,14 @@ app.use(express.static(__dirname  +  '/public'));
 app.get("/", (req,res) => {
     res.send("youhou");
 })
+
+app.use('/auth', authRouter);
+
+
+
+
+
+
 /// dans le cas d'une route non trouvée, je retourne le code 404 'Not Found'
 app.use(function(req, res, next) {
     var  err  =  new  Error('Not Found');
