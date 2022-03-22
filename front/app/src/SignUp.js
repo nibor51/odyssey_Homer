@@ -1,22 +1,53 @@
 import { useState } from 'react';
 
 export default function SignUp() {
-  const [email, setEmail] = useState('');
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+    name: '',
+    lastname: '',
+  });
+  const myJSON = JSON.stringify(form,1,1);
 
-  function updateEmailField(e) {
-    setEmail(e.target.value);
+  function updateField(e) {
+    setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   return (
     <>
         <h1>
-            {email}
+            {myJSON}
         </h1>
         <label>
             Email: 
             <input
-                value={email}
-                onChange={updateEmailField}
+              name="email"
+              value={form.email}
+              onChange={updateField}
+            />
+        </label>
+        <label>
+            Password:
+            <input
+              name="password"
+              value={form.password}
+              onChange={updateField}
+            />
+        </label>
+        <label>
+            Name:
+            <input
+              name="name"
+              value={form.name}
+              onChange={updateField}
+            />
+        </label>
+        <label>
+            Lastname:
+            <input
+              name="lastname"
+              value={form.lastname}
+              onChange={updateField}
             />
         </label>
     </>
