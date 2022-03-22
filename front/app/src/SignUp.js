@@ -4,6 +4,7 @@ export default function SignUp() {
   const [form, setForm] = useState({
     email: '',
     password: '',
+    confirmPassword: '',
     name: '',
     lastname: '',
   });
@@ -37,6 +38,14 @@ export default function SignUp() {
               <input
                 name="password"
                 value={form.password}
+                onChange={updateField}
+              />
+          </label>
+          <label>
+              Confirm Password:
+              <input
+                name="confirmPassword"
+                value={form.confirmPassword}
                 onChange={updateField}
               />
           </label>
