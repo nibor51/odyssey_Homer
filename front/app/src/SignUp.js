@@ -13,43 +13,51 @@ export default function SignUp() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(myJSON);
+  }
+
   return (
     <>
         <h1>
             {myJSON}
         </h1>
-        <label>
-            Email: 
-            <input
-              name="email"
-              value={form.email}
-              onChange={updateField}
-            />
-        </label>
-        <label>
-            Password:
-            <input
-              name="password"
-              value={form.password}
-              onChange={updateField}
-            />
-        </label>
-        <label>
-            Name:
-            <input
-              name="name"
-              value={form.name}
-              onChange={updateField}
-            />
-        </label>
-        <label>
-            Lastname:
-            <input
-              name="lastname"
-              value={form.lastname}
-              onChange={updateField}
-            />
-        </label>
+        <form onSubmit={handleSubmit}>
+          <label>
+              Email: 
+              <input
+                name="email"
+                value={form.email}
+                onChange={updateField}
+              />
+          </label>
+          <label>
+              Password:
+              <input
+                name="password"
+                value={form.password}
+                onChange={updateField}
+              />
+          </label>
+          <label>
+              Name:
+              <input
+                name="name"
+                value={form.name}
+                onChange={updateField}
+              />
+          </label>
+          <label>
+              Lastname:
+              <input
+                name="lastname"
+                value={form.lastname}
+                onChange={updateField}
+              />
+          </label>
+          <button type="submit">Sign Up</button>
+        </form>
     </>
   );
 }
